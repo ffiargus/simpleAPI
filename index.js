@@ -3,8 +3,13 @@ const express = require('express');
 const app = express();
 const MongoClient   = require('mongodb').MongoClient;
 const MONGODB_URI   = process.env.MONGODB_URI;
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
+app.use(bodyParser.json());
+app.use(cors());
 const PORT = process.env.PORT || 8080;
+
 
 const events = [];
 

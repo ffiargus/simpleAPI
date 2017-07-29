@@ -14,7 +14,10 @@ module.exports = (data) => {
   });
 
   home.post('/events', (req, res) => {
-    console.log(req.body);
-    // data.saveEvent()
+
+    data.saveEvent(req.body, (err, result) => console.log(res))
+    res.status(201).send();
   })
+
+  return home;
 }
