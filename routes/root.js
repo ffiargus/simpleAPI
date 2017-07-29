@@ -15,9 +15,18 @@ module.exports = (data) => {
 
   home.post('/events', (req, res) => {
 
-    data.saveEvent(req.body, (err, result) => console.log(res))
-    res.status(201).send();
-  })
+    data.saveEvent(req.body, (err, result) => {
+      res.status(201).send();
+    });
+  });
+
+  home.delete('/events/:id', (req, res) => {
+    data.deleteEvent(req.params.id, (err, result) => {
+      res.status(201).send();
+    });
+  });
+
+
 
   return home;
 }
