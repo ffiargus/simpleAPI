@@ -1,6 +1,6 @@
 const express = require('express');
-const app = express();
-const home = express.Router();
+const app     = express();
+const home    = express.Router();
 
 module.exports = (data) => {
   home.get('/events.json', (req, res) => {
@@ -25,8 +25,6 @@ module.exports = (data) => {
       res.status(201).send();
     });
   });
-
-
 
   return home;
 }
