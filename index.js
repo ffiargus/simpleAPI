@@ -15,9 +15,16 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     console.error(`Failed to connect: ${MONGODB_URI}`);
     throw err;
   }
+
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
 
   const DataHelpers = require('./lib/dataHelpers')(db);
 
-  app.use('/', roo)
+  const rootRoutes = require('./routes/root')(DataHelpers);
+
+  app.use('/', rootRoutes);
+});
+
+app.listen(PORT, () => {
+  console.log('Simple API listening on port', PORT);
 })
