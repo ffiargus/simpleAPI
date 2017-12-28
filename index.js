@@ -26,8 +26,10 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   const DataHelpers = require('./lib/dataHelpers')(db);
 
   const rootRoutes = require('./routes/root')(DataHelpers);
+  const inviteRoutes = require('./routes/invite')(DataHelpers);
 
   app.use('/', rootRoutes);
+  app.use('/invite', inviteRoutes);
 });
 
 app.listen(PORT, () => {

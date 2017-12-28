@@ -14,7 +14,6 @@ module.exports = (data) => {
   });
 
   home.post('/events', (req, res) => {
-
     data.saveEvent(req.body, (err, result) => {
       res.status(201).send();
     });
